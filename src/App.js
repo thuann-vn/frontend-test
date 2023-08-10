@@ -6,6 +6,7 @@ import Records from './screens/Records';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import News from './screens/News';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/news" element={<News />} />
       </Routes>
       <Footer/>
+      <ScrollToTopButton/>
     </Router>
   );
 }
