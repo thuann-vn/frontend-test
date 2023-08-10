@@ -1,3 +1,4 @@
+import moment from 'moment/moment';
 import React from 'react';
 
 function HomeMainPhoto({ percentage }) {
@@ -6,6 +7,9 @@ function HomeMainPhoto({ percentage }) {
 
   // Calculate the length of the dash offset based on the percentage
   const dashOffset = circumference - (percentage / 100) * circumference;
+
+  //Today
+  const todayStr = moment().format('MM/DD')
 
   return (
     <div className='main-photo-container'>
@@ -25,7 +29,7 @@ function HomeMainPhoto({ percentage }) {
           strokeDashoffset={dashOffset}
         />
         <text x="50" y="50" textAnchor="middle" dy="0.3em" className="progress-text">
-          05/21 <tspan className="progress-text-percentage">{percentage}%</tspan>
+          {todayStr} <tspan className="progress-text-percentage">{percentage}%</tspan>
         </text>
       </svg>
     </div>

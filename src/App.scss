@@ -1,0 +1,177 @@
+/* GLOBAL */
+$primary-color-300: #FFCC21;
+$primary-color-400: #FF963C;
+$primary-color-500: #EA6C00;
+$secondary-color: #8FE9D0;
+$dark-color: #2E2E2E;
+$dark-color-500: #414141;
+$gray-color: #777777;
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: $dark-color;
+}
+
+.btn-primary{
+  background-image: linear-gradient(33deg, $primary-color-300 0%, $primary-color-400 100%);
+  color: white;
+  padding: 14px 60px; 
+  border: none;
+  cursor: pointer;
+  border-radius: 5px; 
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 26px;
+
+  &:hover{
+    background-image: linear-gradient(33deg, $primary-color-400 0%, $primary-color-500 100%);
+  }
+}
+
+/* HOME */
+.col-main-photo{
+  background-image: url('../public/Imagine/home/main_photo.jpg');
+  background-position: center;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+// HOME PROGRESS CIRCLE
+.progress-circle {
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0px 0px 6px $primary-color-500);
+}
+
+.progress-circle-background {
+  fill: none;
+  stroke: transparent;
+  stroke-width: 2;
+}
+
+.progress-circle-bar {
+  fill: none;
+  stroke: #fff; /* Change this to your desired color */
+  stroke-width: 2;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: center;
+  transition: stroke-dashoffset 0.3s ease-in-out;
+}
+
+.progress-text {
+  font-size: 10px;
+  font-weight: 400;
+  fill: #fff;
+}
+
+.progress-text-percentage {
+  font-size: 16px;
+}
+
+// HOME CHART
+.col-main-chart{
+  padding: 0;
+}
+.main-chart-container{
+  background-color: #2e2e2e;
+}
+
+// HOME RECORDS
+.home-records{
+  .home-records-filter{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 20px;
+
+    .home-records-filter-item{
+      margin: 0 40px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &:hover{
+        opacity: .8;
+      }
+    }
+  }
+
+  .home-records-list{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 0 -4px;
+    .home-records-list-item{
+      width: 25%;
+      aspect-ratio: 1/1;
+      padding: 4px;
+
+      .home-records-list-item-container{
+        height: 100%;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+
+        .home-records-list-item-image{
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          top: 0;
+          background-position: center;
+          background-size: cover;
+          transition: all 0.3s ease-in-out;
+          background-repeat: no-repeat;
+  
+          &:hover{
+            transform: scale(1.2);
+          }
+        }
+        
+      }
+
+      .home-records-list-item-date{
+        padding: 7px 8px;
+        background-color: $primary-color-300;
+        color: #fff;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px;
+        letter-spacing: 0.15px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+  .home-records-footer{
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+
+
+/* FOOTER */
+.footer{
+  background-color: $dark-color;
+  padding: 40px 0;
+  margin-top: 60px;
+  
+  .footer-links{
+    a{
+      font-size: 11px;
+      color: #fff;
+      display: inline-block;
+      margin-right: 40px;
+      text-decoration: none;
+
+      &:hover{
+        color: $primary-color-500;
+      }
+    }
+  }
+}

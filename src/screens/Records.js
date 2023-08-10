@@ -1,11 +1,11 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 
 function About() {
   return (
-    <div>
-      <h2>About Screen</h2>
-      {/* Add your content here */}
-    </div>
+    <Container>
+      
+    </Container>
   );
 }
 

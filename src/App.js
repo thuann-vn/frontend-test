@@ -1,20 +1,20 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import './App.scss';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './screens/Home';
-import About from './screens/About';
+import About from './screens/Records';
 import Navigation from './Navigation';
+import Footer from './Footer';
 
 function App() {
   return (
     <Router>
-      <div>
-        <Navigation />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </div>
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+      <Footer/>
     </Router>
   );
 }
