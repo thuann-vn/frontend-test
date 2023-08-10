@@ -2,9 +2,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './screens/Home';
-import About from './screens/Records';
+import Records from './screens/Records';
 import Navigation from './Navigation';
 import Footer from './Footer';
+import News from './screens/News';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/records" element={<Records />} />
+        <Route path="/news" element={<News />} />
       </Routes>
       <Footer/>
     </Router>

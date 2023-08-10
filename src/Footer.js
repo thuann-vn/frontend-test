@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Nav, NavDropdown, Navbar } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 function Footer() {

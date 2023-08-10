@@ -1,37 +1,118 @@
 /* GLOBAL */
-$primary-color-300: #FFCC21;
-$primary-color-400: #FF963C;
-$primary-color-500: #EA6C00;
-$secondary-color: #8FE9D0;
-$dark-color: #2E2E2E;
+$primary-color-300: #ffcc21;
+$primary-color-400: #ff963c;
+$primary-color-500: #ea6c00;
+$secondary-color: #8fe9d0;
+$dark-color: #2e2e2e;
 $dark-color-500: #414141;
 $gray-color: #777777;
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: $dark-color;
 }
 
-.btn-primary{
-  background-image: linear-gradient(33deg, $primary-color-300 0%, $primary-color-400 100%);
+.btn-primary {
+  background-image: linear-gradient(
+    33deg,
+    $primary-color-300 0%,
+    $primary-color-400 100%
+  );
   color: white;
-  padding: 14px 60px; 
+  padding: 14px 60px;
   border: none;
   cursor: pointer;
-  border-radius: 5px; 
+  border-radius: 5px;
   font-size: 18px;
   font-style: normal;
   font-weight: 300;
   line-height: 26px;
 
-  &:hover{
-    background-image: linear-gradient(33deg, $primary-color-400 0%, $primary-color-500 100%);
+  &:hover {
+    background-image: linear-gradient(
+      33deg,
+      $primary-color-400 0%,
+      $primary-color-500 100%
+    );
+  }
+}
+
+/* MAIN NAVIGATION */
+.main-navbar{
+  .navbar-nav{
+    align-items: center;
+
+    > a{
+      margin-right: 30px;
+      color: #fff;
+      font-family: "Hiragino Kaku Gothic Pro";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 23px;
+      position: relative;
+
+      &.active{
+        color: $primary-color-400;
+      }
+
+      .badge{
+        position: absolute;
+        font-family: Inter;
+        left: 28px;
+        top: 5px;
+        border-radius: 100%;
+        width: 18px;
+        height: 18px;
+        line-height: 18px;
+        background-color: $primary-color-500 !important;
+        padding: 0;
+        font-size: 10px;
+        font-weight: normal;
+      }
+      
+      @media screen and (max-width: 767px) {
+        display: none;
+        text-align: center;
+        margin-right: 10px;
+
+        > img{
+          display: block;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  .dropdown-toggle::after{
+    display: none;
+  }
+
+  .dropdown-menu{
+    background-color: $gray-color;
+    width: 280px;
+    border-radius: 0;
+    padding: 0;
+
+    .dropdown-item{
+      padding: 23px 32px;
+      color: #fff;
+      border-bottom: 1px solid rgba($color: $dark-color, $alpha: 0.25);
+
+      &:last-of-type{
+        border-bottom: none;
+      }
+
+      &:hover, &:focus{
+        background-color: $primary-color-300
+      }
+    }
   }
 }
 
 /* HOME */
-.col-main-photo{
-  background-image: url('../public/Imagine/home/main_photo.jpg');
+.col-main-photo {
+  background-image: url("../public/Imagine/home/main_photo.jpg");
   background-position: center;
   background-position: center;
   justify-content: center;
@@ -73,49 +154,62 @@ body {
 }
 
 // HOME CHART
-.col-main-chart{
+.col-main-chart {
   padding: 0;
 }
-.main-chart-container{
-  background-color: #2e2e2e;
+.main-chart-container {
+  background-color: $dark-color;
 }
 
 // HOME RECORDS
-.home-records{
-  .home-records-filter{
+.home-records {
+  .home-records-filter {
     display: flex;
     justify-content: center;
     padding: 0;
     margin: 20px;
 
-    .home-records-filter-item{
+    .home-records-filter-item {
       margin: 0 40px;
       cursor: pointer;
       transition: all 0.3s ease-in-out;
 
-      &:hover{
-        opacity: .8;
+      &:hover {
+        opacity: 0.8;
       }
+
+      @media screen and (max-width: 767px) {
+        margin: 10px;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      flex-wrap: wrap;
     }
   }
 
-  .home-records-list{
+  .home-records-list {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     margin: 0 -4px;
-    .home-records-list-item{
+
+    .home-records-list-item {
       width: 25%;
       aspect-ratio: 1/1;
       padding: 4px;
 
-      .home-records-list-item-container{
+      @media screen and (max-width: 767px) {
+        width: 50%;
+      }
+
+      .home-records-list-item-container {
         height: 100%;
         width: 100%;
         position: relative;
         overflow: hidden;
 
-        .home-records-list-item-image{
+        .home-records-list-item-image {
           position: absolute;
           bottom: 0;
           left: 0;
@@ -125,15 +219,14 @@ body {
           background-size: cover;
           transition: all 0.3s ease-in-out;
           background-repeat: no-repeat;
-  
-          &:hover{
+
+          &:hover {
             transform: scale(1.2);
           }
         }
-        
       }
 
-      .home-records-list-item-date{
+      .home-records-list-item-date {
         padding: 7px 8px;
         background-color: $primary-color-300;
         color: #fff;
@@ -148,29 +241,454 @@ body {
       }
     }
   }
-  .home-records-footer{
+  .home-records-footer {
     text-align: center;
     margin-top: 20px;
   }
 }
 
+/* RECORDS */
+.recommend-list {
+  margin-top: 60px;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 30px;
+  }
+}
+.recommend-item {
+  padding: 20px;
+  background-color: $primary-color-300;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 20px;
+  }
+
+  .recommend-item-container {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .recommend-item-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      filter: grayscale(100%);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .recommend-item-overlay {
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .recommend-item-title {
+      color: $primary-color-300;
+      font-size: 25px;
+      font-weight: 400;
+      line-height: 30px;
+      letter-spacing: 0.125px;
+      z-index: 2;
+    }
+
+    .recommend-item-description {
+      background-color: $primary-color-400;
+      z-index: 2;
+      color: #fff;
+      padding: 3px 10px;
+      font-family: Hiragino Kaku Gothic Pro;
+      font-size: 14px;
+      font-style: normal;
+    }
+
+    &:hover {
+      .recommend-item-image {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+.record-chart-container {
+  background-color: $dark-color;
+  padding: 20px;
+  margin-top: 60px;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 30px;
+  }
+
+  .record-chart-title {
+    color: #fff;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0.15px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+
+    > span {
+      font-size: 15px;
+      display: inline-block;
+      padding-right: 30px;
+    }
+  }
+
+  .record-chart {
+    height: 250px;
+  }
+
+  .chart-legends {
+    margin-top: 16px;
+    .legend-button {
+      display: inline-block;
+      margin-right: 16px;
+      button {
+        color: $primary-color-300;
+        background-color: #fff;
+        border: 0;
+        border-radius: 11px;
+        width: 56px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 15px;
+        font-style: normal;
+
+        &.selected {
+          background-color: $primary-color-300;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.record-list {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  justify-content: space-between;
+  overflow: auto;
+  max-height: 200px;
+  padding-right: 20px;
+
+  /* Customize the scrollbar */
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #888 #ddd; /* For Firefox */
+
+  /* For WebKit (Chrome, Safari) */
+  &::-webkit-scrollbar {
+    width: 6px; /* Width of scrollbar */
+    background-color: #777777;
+    border-radius: 6px; /* Rounded corners */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $primary-color-300; /* Color of the thumb */
+    border-radius: 6px; /* Rounded corners */
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Color on hover */
+  }
+
+  .record-item {
+    width: 45%;
+    width: calc(50% - 20px);
+    color: #fff;
+    position: relative;
+    border-bottom: 1px solid #777777;
+    padding: 8px 0;
+    padding-left: 20px;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+
+    &:before {
+      content: "●";
+      font-size: 5px;
+      font-style: normal;
+      font-weight: 300;
+      position: absolute;
+      left: 0;
+      top: 15px;
+    }
+
+    .record-item-name {
+      color: #fff;
+      font-family: Hiragino Kaku Gothic Pro;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 22px;
+      letter-spacing: 0.075px;
+    }
+
+    .record-item-kcal {
+      color: $primary-color-300;
+      font-family: Inter;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 18px;
+      letter-spacing: 0.075px;
+    }
+
+    .record-item-time {
+      color: $primary-color-300;
+      text-align: right;
+      font-family: Inter;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 22px;
+      letter-spacing: 0.09px;
+      position: absolute;
+      right: 0;
+      top: 10px;
+    }
+  }
+}
+
+.diary-container {
+  margin-top: 60px;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 30px;
+  }
+
+  .diary-title {
+    color: $dark-color-500;
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27px;
+    letter-spacing: 0.11px;
+  }
+
+  .diary-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -6px;
+
+    .diary-item {
+      width: 25%;
+      padding: 6px;
+
+      @media screen and (max-width: 768px) {
+        width: 50%;
+      }
+      
+      @media screen and (max-width: 468px) {
+        width: 100%;
+      }
+
+      .diary-item-container {
+        border: 2px solid #707070;
+        background: #fff;
+        padding: 16px;
+      }
+
+      .diary-item-datetime {
+        color: $dark-color-500;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0.09px;
+        margin-bottom: 10px;
+        width: 140px;
+      }
+    }
+  }
+}
+
+.diary-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* NEWS */
+.category-list {
+  margin-top: 60px;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 30px;
+  }
+}
+.category-item {
+  background-color: $dark-color;
+  padding: 24px 8px;
+  cursor: pointer;
+  text-align: center;
+
+  @media screen and (max-width: 767px) {
+    margin-bottom: 10px;
+  }
+
+  .category-item-container {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .category-item-title {
+      color: $primary-color-300;
+      text-align: center;
+      font-family: Inter;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 27px;
+      letter-spacing: 0.11px;
+      width: 90%;
+    }
+
+    .category-item-divider {
+      height: 1px;
+      width: 56px;
+      background-color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .category-item-description {
+      color: #fff;
+      text-align: center;
+      font-family: Hiragino Kaku Gothic Pro;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 26px;
+    }
+  }
+}
+
+/* NEWS */
+.news-container {
+  margin-top: 60px;
+}
+
+.news-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -4px;
+
+  .news-item {
+    width: 25%;
+    padding: 4px;
+    margin-bottom: 10px;
+
+    @media screen and (max-width: 768px) {
+      width: 50%;
+    }
+     
+    .news-item-container {
+      overflow: hidden;
+    }
+
+    .news-item-image-container {
+      position: relative;
+      margin-bottom: 5px;
+      overflow: hidden;
+      display: block;
+      text-decoration: none;
+
+      .news-item-image {
+        aspect-ratio: 234/145;
+        background-position: center;
+        background-size: cover;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .news-item-datetime{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 4px 8px;
+        background-color: $primary-color-300;
+        color: #fff;
+        font-family: Inter;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px;
+      }
+    }
+
+    .news-item-title {
+      color: $dark-color-500;
+      font-family: "Hiragino Kaku Gothic Pro";
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 22px;
+      letter-spacing: 0.075px;
+      text-decoration: none;
+    }
+
+    .news-item-tags {
+      color: $primary-color-500;
+      font-family: "Hiragino Kaku Gothic Pro";
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 22px; /* 183.333% */
+      letter-spacing: 0.06px;
+    }
+
+    &:hover{
+      .news-item-image{
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+.news-footer{
+  text-align: center;
+  margin-top: 40px;
+}
 
 /* FOOTER */
-.footer{
+.footer {
   background-color: $dark-color;
   padding: 40px 0;
   margin-top: 60px;
-  
-  .footer-links{
-    a{
+
+  .footer-links {
+    a {
       font-size: 11px;
       color: #fff;
       display: inline-block;
       margin-right: 40px;
       text-decoration: none;
 
-      &:hover{
+      &:hover {
         color: $primary-color-500;
+      }
+
+      @media screen and (max-width: 767px) {
+        margin-right: 20px;
       }
     }
   }
